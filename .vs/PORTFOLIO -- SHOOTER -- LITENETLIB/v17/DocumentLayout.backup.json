@@ -1,17 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Godot\\Godot Projects\\portfolio----shooter----lite-net-lib\\",
+  "WorkspaceRootPath": "C:\\Godot\\Godot Projects\\portfolio-shooter--lite-net-lib\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FF3529DA-0BC0-44C1-80A9-2758610225E5}|Portfolio -- Shooter -- LiteNetLib.csproj|d:\\godot\\godot projects\\portfolio----shooter----lite-net-lib\\scripts\\networkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FF3529DA-0BC0-44C1-80A9-2758610225E5}|Portfolio -- Shooter -- LiteNetLib.csproj|solutionrelative:scripts\\networkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FF3529DA-0BC0-44C1-80A9-2758610225E5}|Portfolio -- Shooter -- LiteNetLib.csproj|d:\\godot\\godot projects\\portfolio----shooter----lite-net-lib\\scripts\\networkmessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FF3529DA-0BC0-44C1-80A9-2758610225E5}|Portfolio -- Shooter -- LiteNetLib.csproj|c:\\godot\\godot projects\\portfolio-shooter--lite-net-lib\\scripts\\networkmessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FF3529DA-0BC0-44C1-80A9-2758610225E5}|Portfolio -- Shooter -- LiteNetLib.csproj|solutionrelative:scripts\\networkmessages.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FF3529DA-0BC0-44C1-80A9-2758610225E5}|Portfolio -- Shooter -- LiteNetLib.csproj|d:\\godot\\godot projects\\portfolio----shooter----lite-net-lib\\scripts\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{FF3529DA-0BC0-44C1-80A9-2758610225E5}|Portfolio -- Shooter -- LiteNetLib.csproj|c:\\godot\\godot projects\\portfolio-shooter--lite-net-lib\\scripts\\networkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF3529DA-0BC0-44C1-80A9-2758610225E5}|Portfolio -- Shooter -- LiteNetLib.csproj|solutionrelative:scripts\\networkmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF3529DA-0BC0-44C1-80A9-2758610225E5}|Portfolio -- Shooter -- LiteNetLib.csproj|c:\\godot\\godot projects\\portfolio-shooter--lite-net-lib\\scripts\\inpututils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF3529DA-0BC0-44C1-80A9-2758610225E5}|Portfolio -- Shooter -- LiteNetLib.csproj|solutionrelative:scripts\\inpututils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF3529DA-0BC0-44C1-80A9-2758610225E5}|Portfolio -- Shooter -- LiteNetLib.csproj|c:\\godot\\godot projects\\portfolio-shooter--lite-net-lib\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF3529DA-0BC0-44C1-80A9-2758610225E5}|Portfolio -- Shooter -- LiteNetLib.csproj|solutionrelative:scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF3529DA-0BC0-44C1-80A9-2758610225E5}|Portfolio -- Shooter -- LiteNetLib.csproj|c:\\godot\\godot projects\\portfolio-shooter--lite-net-lib\\scripts\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FF3529DA-0BC0-44C1-80A9-2758610225E5}|Portfolio -- Shooter -- LiteNetLib.csproj|solutionrelative:scripts\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,43 +30,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "C:\\Godot\\Godot Projects\\portfolio-shooter--lite-net-lib\\Scripts\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Scripts\\PlayerController.cs",
+              "ToolTip": "C:\\Godot\\Godot Projects\\portfolio-shooter--lite-net-lib\\Scripts\\PlayerController.cs",
+              "RelativeToolTip": "Scripts\\PlayerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T17:31:42.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "InputUtils.cs",
+              "DocumentMoniker": "C:\\Godot\\Godot Projects\\portfolio-shooter--lite-net-lib\\Scripts\\InputUtils.cs",
+              "RelativeDocumentMoniker": "Scripts\\InputUtils.cs",
+              "ToolTip": "C:\\Godot\\Godot Projects\\portfolio-shooter--lite-net-lib\\Scripts\\InputUtils.cs",
+              "RelativeToolTip": "Scripts\\InputUtils.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T17:28:00.293Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "InputManager.cs",
-              "DocumentMoniker": "D:\\Godot\\Godot Projects\\portfolio----shooter----lite-net-lib\\Scripts\\InputManager.cs",
+              "DocumentMoniker": "C:\\Godot\\Godot Projects\\portfolio-shooter--lite-net-lib\\Scripts\\InputManager.cs",
               "RelativeDocumentMoniker": "Scripts\\InputManager.cs",
-              "ToolTip": "D:\\Godot\\Godot Projects\\portfolio----shooter----lite-net-lib\\Scripts\\InputManager.cs",
+              "ToolTip": "C:\\Godot\\Godot Projects\\portfolio-shooter--lite-net-lib\\Scripts\\InputManager.cs",
               "RelativeToolTip": "Scripts\\InputManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-06T01:56:40.036Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "NetworkMessages.cs",
-              "DocumentMoniker": "D:\\Godot\\Godot Projects\\portfolio----shooter----lite-net-lib\\Scripts\\NetworkMessages.cs",
+              "DocumentMoniker": "C:\\Godot\\Godot Projects\\portfolio-shooter--lite-net-lib\\Scripts\\NetworkMessages.cs",
               "RelativeDocumentMoniker": "Scripts\\NetworkMessages.cs",
-              "ToolTip": "D:\\Godot\\Godot Projects\\portfolio----shooter----lite-net-lib\\Scripts\\NetworkMessages.cs",
+              "ToolTip": "C:\\Godot\\Godot Projects\\portfolio-shooter--lite-net-lib\\Scripts\\NetworkMessages.cs",
               "RelativeToolTip": "Scripts\\NetworkMessages.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAIwIIAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAALkAAAAAAAAAAAA2wLIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-05T22:33:54.259Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "NetworkManager.cs",
-              "DocumentMoniker": "D:\\Godot\\Godot Projects\\portfolio----shooter----lite-net-lib\\Scripts\\NetworkManager.cs",
+              "DocumentMoniker": "C:\\Godot\\Godot Projects\\portfolio-shooter--lite-net-lib\\Scripts\\NetworkManager.cs",
               "RelativeDocumentMoniker": "Scripts\\NetworkManager.cs",
-              "ToolTip": "D:\\Godot\\Godot Projects\\portfolio----shooter----lite-net-lib\\Scripts\\NetworkManager.cs",
+              "ToolTip": "C:\\Godot\\Godot Projects\\portfolio-shooter--lite-net-lib\\Scripts\\NetworkManager.cs",
               "RelativeToolTip": "Scripts\\NetworkManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHcAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAQwJ0AAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-05T22:06:12.541Z",
               "EditorCaption": ""

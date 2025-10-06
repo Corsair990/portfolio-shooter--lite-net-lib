@@ -9,7 +9,8 @@ public enum MessageType : byte
     PlayerSpawn = 1,
     PlayerDespawn = 2,
     WorldState = 3,
-    ChatMessage = 4
+    ChatMessage = 4,
+    LoadNewScene =5
 }
 
 public struct InputData : INetSerializable
@@ -30,7 +31,7 @@ public struct InputData : INetSerializable
     }
 }
 
-public struct WorldState
+public struct WorldState : INetSerializable
 {
     // We'll use a byte for the player ID, allowing up to 255 players
     public byte playerID;
@@ -69,6 +70,36 @@ public struct WorldState
      * At 16 players this is about 124 kbps for the server or 15.5 KBps.
     */
 
+    public void Serialize(NetDataWriter writer)
+    {
+        writer.Put(playerID);
+        writer.Put(posX);
+        writer.Put(posY);
+        writer.Put(posZ);
+        writer.Put(rot);
+        writer.Put(pitch);
+        writer.Put(input);
+        writer.Put(health);
+        writer.Put(powerups);
+        writer.Put(animation);
+        writer.Put(tick);
+    }
+
+    public void Deserialize(NetDataReader reader)
+    {
+        playerID = reader.GetByte();
+        posX = reader.GetUShort();
+        posY = reader.GetUShort();
+        posZ = reader.GetUShort();
+        rot = reader.GetUShort();
+        pitch = reader.GetSByte();
+        input = reader.GetByte();
+        health = reader.GetByte();
+        powerups = reader.GetByte();
+        animation = reader.GetByte();
+        tick = reader.GetUShort();
+    }
+
     public WorldState(byte _playerID, ushort _posX, ushort _posY, ushort _posZ, ushort _rot, sbyte _pitch, byte _input, byte _health, byte _powerups, byte _animation, ushort _tick)
     {
         playerID = _playerID;
@@ -85,6 +116,12 @@ public struct WorldState
     }
 }
 
+public struct SpawnData
+{
+    public byte playerID;
+    public Vector3 pos;
+}
+
 public partial class NetworkMessages : Node
 {
     public static NetDataWriter PlayerInput(InputData _inputs)
@@ -94,33 +131,55 @@ public partial class NetworkMessages : Node
         return writer;
     }
 
-    public static NetDataWriter PlayerSpawn(int _playerId, Vector3I _position)
+    public static NetDataWriter PlayerSpawn(byte _playerId, Vector3 _position)
     {
         NetDataWriter writer = new NetDataWriter();
         writer.Put((byte)MessageType.PlayerSpawn);
-        writer.Put((byte)(_playerId));
+        writer.Put((_playerId));
         writer.Put((ushort)(_position.X));
         writer.Put((ushort)(_position.Y));
         writer.Put((ushort)(_position.Z));
         return writer;
     }
 
-    public static NetDataReader ReadPlayerSpawn(NetDataReader _reader)
+    public static SpawnData ReadPlayerSpawn(NetDataReader _reader)
     {
-        int playerId = _reader.GetUShort();
-        int x = _reader.GetUShort();
-        int y = _reader.GetUShort();
-        int z = _reader.GetUShort();
-        Vector3I position = new Vector3I(x, y, z);
+        byte playerId = _reader.GetByte();
+        float x = _reader.GetUShort();
+        float y = _reader.GetUShort();
+        float z = _reader.GetUShort();
+        Vector3 position = new Vector3(x, y, z);
+
         GD.Print($"Read PlayerSpawn: playerId:{playerId}, position:{position}");
-        return _reader;
+        return new SpawnData { playerID = playerId, pos = position };
     }
 
-    public static NetDataWriter PlayerDespawn(int _playerId)
+    public static NetDataWriter PlayerDespawn(byte _playerId)
     {
         NetDataWriter writer = new NetDataWriter();
         writer.Put((byte)MessageType.PlayerDespawn);
-        writer.Put((byte)_playerId);
+        writer.Put(_playerId);
+        return writer;
+    }
+
+    public static byte ReadPlayerDespawn(NetDataReader _reader)
+    {
+        return _reader.GetByte();
+    }
+
+    public static NetDataWriter WriteWorldStateBatch(WorldState[] states)
+    {
+        NetDataWriter writer = new NetDataWriter();
+        writer.Put((byte)MessageType.WorldState);
+
+        writer.Put((byte)states.Length);
+
+        // Loop and serialize each 16-byte struct
+        foreach (var state in states)
+        {
+            state.Serialize(writer);
+        }
+
         return writer;
     }
 
@@ -131,38 +190,53 @@ public partial class NetworkMessages : Node
         return writer;
     }
 
-    public static NetDataReader ReadWorldState(NetDataReader _reader)
+    public static WorldState ReadWorldState(NetDataReader _reader)
     {
-        int playerId = _reader.GetUShort();
-        int x = _reader.GetUShort();
-        int y = _reader.GetUShort();
-        int z = _reader.GetUShort();
-        float rot = _reader.GetUShort() / 65535f * 360f;
-        float pitch = _reader.GetSByte() / 127f * 90f;
+        byte playerId = _reader.GetByte();
+        ushort x = _reader.GetUShort();
+        ushort y = _reader.GetUShort();
+        ushort z = _reader.GetUShort();
+        ushort rot = _reader.GetUShort(); // 65535f * 360f;
+        sbyte pitch = _reader.GetSByte(); // 127f * 90f;
         byte input = _reader.GetByte();
         byte health = _reader.GetByte();
         byte powerups = _reader.GetByte();
         byte animation = _reader.GetByte();
         ushort tick = _reader.GetUShort();
 
-        return _reader;
+        return new WorldState { playerID = playerId, posX = x, posY = y, rot = rot, pitch = pitch, input = input, health = health, powerups = powerups, animation = animation, tick = tick  };
     }
 
-    public static NetDataWriter ChatMessage(int _playerId, string _message)
+    public static WorldState[] ReadWorldStateBatch(NetDataReader _reader)
+    {
+        byte count = _reader.GetByte();
+        WorldState[] states = new WorldState[count];
+
+        for (int i = 0; i < count; i++)
+        {
+            WorldState state = new WorldState();
+            state.Deserialize(_reader);
+            states[i] = state;
+        }
+
+        return states;
+    }
+
+    public static NetDataWriter ChatMessage(byte _playerId, string _message)
     {
         NetDataWriter writer = new NetDataWriter();
         writer.Put((byte)MessageType.ChatMessage);
-        writer.Put((byte)_playerId);
+        writer.Put(_playerId);
         writer.Put(_message);
         return writer;
     }
 
-    public static NetDataReader ReadChatMessage(NetDataReader _reader)
+    public static String ReadChatMessage(NetDataReader _reader)
     {
-        int playerId = _reader.GetUShort();
+        byte playerId = _reader.GetByte();
         string message = _reader.GetString();
         GD.Print($"{playerId}: {message}");
-        return _reader;
+        return message;
     }
 
 }
