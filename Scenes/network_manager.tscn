@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1l2j21qtxtg1"]
+
+[ext_resource type="Script" uid="uid://w25j5s2sssx3" path="res://Scripts/NetworkManager.cs" id="1_tbq58"]
+[ext_resource type="PackedScene" uid="uid://bn36xl316ptap" path="res://Scenes/server_player.tscn" id="2_shnxa"]
+[ext_resource type="PackedScene" uid="uid://cwr3yma7rcmf7" path="res://Scenes/client_player.tscn" id="3_tj3a3"]
+
+[node name="NetworkManager" type="Node"]
+script = ExtResource("1_tbq58")
+serverPlayerScene = ExtResource("2_shnxa")
+clientPlayerScene = ExtResource("3_tj3a3")
